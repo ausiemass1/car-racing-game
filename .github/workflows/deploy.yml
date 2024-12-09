@@ -3,7 +3,7 @@ name: Deploy to cPanel via FTP
 on:
   push:
     branches:
-      - main  # Trigger deployment on push to the main branch
+      - main # Trigger deployment on push to the main branch
 
 jobs:
   deploy:
@@ -11,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout Code
         uses: actions/checkout@v3
 
@@ -29,11 +28,7 @@ jobs:
           port: "21"
           protocol: "ftp"
           local-dir: "./" # Local directory to deploy
-          server-dir: "/home/hillside/car.hillsidecollegesd.com"  # Target directory on server
+          server-dir: "/home/hillside/car.hillsidecollegesd.com" # Target directory on server
           exclude:
-        
-            - "node_modules/**"  # Exclude node_modules
-            - "*.yml"    # Exclude workflow files
-
-
-            # edit
+            - "node_modules/**" # Exclude node_modules
+            - "*.yml" # Exclude workflow files
