@@ -29,6 +29,4 @@ jobs:
           protocol: "ftp"
           local-dir: "./" # Local directory to deploy
           server-dir: "/home/hillside/car.hillsidecollegesd.com" # Target directory on server
-          exclude:
-            - "node_modules/**" # Exclude node_modules
-            - "*.yml" # Exclude workflow files
+        
