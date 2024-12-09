@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout code
+
       - name: Checkout Code
         uses: actions/checkout@v3
 
@@ -19,8 +19,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-
-      # Step 4: Deploy files via FTP
+      # step 3
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.5.0
         with:
@@ -35,3 +34,6 @@ jobs:
             - ".git*"    # Exclude Git-related files
             - "node_modules/**"  # Exclude node_modules
             - "*.yml"    # Exclude workflow files
+
+
+            # edit
