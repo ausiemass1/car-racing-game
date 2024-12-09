@@ -46,7 +46,7 @@ jobs:
 
       # Step 3: Deploy via FTP
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@8e738e9462d30debd6a648c55d8d99e6d6b4f3a0
+        uses: lukasz-lab/ftp-action@v1
         with:
           server: "ftp.hillsidecollegesd.com" # FTP host
           username: "austin@car.hillsidecollegesd.com" # FTP username
