@@ -23,7 +23,7 @@
 #           local-dir: "./"
 #           server-dir: "/home/hillside/car.hillsidecollegesd.com"
 
-name: Deploy to cPanel via FTP
+# name: Deploy to cPanel via FTP
 
 on:
   push:
@@ -31,22 +31,18 @@ on:
       - main # Trigger deployment on push to the main branch
 
 jobs:
-  deploy:
+  web-deploy:
     name: Deploy Application
     runs-on: ubuntu-latest
 
     steps:
       # Step 1: Checkout code
       - name: Checkout Code
-        uses: actions/checkout@v3
-
-      # Step 2: Install dependencies
-      - name: Install Dependencies
-        run: npm install
+        uses: actions/checkout@v4
 
       # Step 3: Deploy via FTP
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: "ftp.hillsidecollegesd.com" # FTP host
           username: "austin@car.hillsidecollegesd.com" # FTP username
@@ -56,3 +52,10 @@ jobs:
           local-dir: "./" # Local directory to deploy (current repository directory)
           server-dir: "/home/hillside/car.hillsidecollegesd.com/" # Target directory on server
           exclude: ".git*,node_modules/**,*.yml,*.md,.github/**" # Exclude files/directories
+
+
+
+  
+
+     
+    
