@@ -39,14 +39,15 @@ jobs:
       # Step 1: Checkout code
       - name: Checkout Code
         uses: actions/checkout@v4
-
+      - name: Install Dependencies
+        run: npm install
       # Step 3: Deploy via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: "ftp.hillsidecollegesd.com" # FTP host
           username: "austin@car.hillsidecollegesd.com" # FTP username
-          password: "@0}d4YT4dd,h" # FTP password (make sure this is correct and secured)
+          password: "mghp;H80Iy3B" # FTP password (make sure this is correct and secured)
           port: "21" # Default FTP port
           protocol: "ftp" # FTP protocol (switch to "ftps" if your server uses FTPS)
           local-dir: "./" # Local directory to deploy (current repository directory)
