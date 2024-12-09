@@ -35,48 +35,48 @@ jobs:
     name: Deploy Application
     runs-on: ubuntu-latest
 
-    # steps:
-    #   # Step 1: Checkout code
-    #   - name: Checkout Code
-    #     uses: actions/checkout@v4
-    #   - name: Install Dependencies
-    #     run: npm install
-    #   # Step 3: Deploy via FTP
-    #   - name: Deploy via FTP
-    #     uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-    #     with:
-    #       server: "ftp.hillsidecollegesd.com" # FTP host
-    #       username: "austin@car.hillsidecollegesd.com" # FTP username
-    #       password: "mghp;H80Iy3B" # FTP password (make sure this is correct and secured)
-    #       port: "21" # Default FTP port
-    #       protocol: "ftp" # FTP protocol (switch to "ftps" if your server uses FTPS)
-    #       local-dir: "./" # Local directory to deploy (current repository directory)
-    #       server-dir: "./" # Target directory on server
-    #       exclude: ".git*,node_modules/**,*.yml,*.md,.github/**" # Exclude files/directories
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Install Dependencies
+        run: npm install
+      # Step 3: Deploy via FTP
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }} # FTP host
+          username: ${{ secrets.FTP_USERNAME }} # FTP username
+          password: ${{ secrets.FTP_PASSWORD }} # FTP password
+          port: "21" # Default FTP port
+          protocol: "ftp" # FTP protocol (switch to "ftps" if your server uses FTPS)
+          local-dir: "./" # Local directory to deploy (current repository directory)
+          server-dir: "./" # Target directory on server
+          exclude: ".git*,node_modules/**,*.yml,*.md,.github/**" # Exclude files/directories
 
 
 
-  steps:
-    # Step 1: Checkout code
-    - name: Checkout Code
-      uses: actions/checkout@v4
+  # steps:
+  #   # Step 1: Checkout code
+  #   - name: Checkout Code
+  #     uses: actions/checkout@v4
 
-    # Step 2: Install Dependencies
-    - name: Install Dependencies
-      run: npm install
+  #   # Step 2: Install Dependencies
+  #   - name: Install Dependencies
+  #     run: npm install
 
-    # Step 3: Deploy via FTP
-    - name: Deploy via FTP
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-      with:
-        server: ${{ secrets.FTP_SERVER }} # FTP host
-        username: ${{ secrets.FTP_USERNAME }} # FTP username
-        password: ${{ secrets.FTP_PASSWORD }} # FTP password
-        port: "21" # Default FTP port
-        protocol: "ftp" # FTP protocol (switch to "ftps" if your server uses FTPS)
-        local-dir: "./" # Local directory to deploy (current repository directory)
-        server-dir: "./" # Target directory on server
-        exclude: ".git*,node_modules/**,*.yml,*.md,.github/**" # Exclude files/directories
+  #   # Step 3: Deploy via FTP
+  #   - name: Deploy via FTP
+  #     uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+  #     with:
+  #       server: ${{ secrets.FTP_SERVER }} # FTP host
+  #       username: ${{ secrets.FTP_USERNAME }} # FTP username
+  #       password: ${{ secrets.FTP_PASSWORD }} # FTP password
+  #       port: "21" # Default FTP port
+  #       protocol: "ftp" # FTP protocol (switch to "ftps" if your server uses FTPS)
+  #       local-dir: "./" # Local directory to deploy (current repository directory)
+  #       server-dir: "./" # Target directory on server
+  #       exclude: ".git*,node_modules/**,*.yml,*.md,.github/**" # Exclude files/directories
 
 
      
