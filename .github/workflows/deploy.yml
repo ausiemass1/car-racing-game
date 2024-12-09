@@ -1,0 +1,40 @@
+name: Deploy to cPanel via FTP
+
+on:
+  push:
+    branches:
+      - main  # Trigger deployment on push to the main branch
+
+jobs:
+  deploy:
+    name: Deploy Application
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Install dependencies
+      - name: Install Dependencies
+        run: npm install
+
+      # Step 3: Build the application (optional, for build-based apps like Next.js)
+      - name: Build Application
+        run: npm run build
+
+      # Step 4: Deploy files via FTP
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.5.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT }}
+          protocol: ftps
+          local-dir: ./  # Local directory to deploy
+          server-dir: ${{ secrets.DEPLOY_DIR }}  # Target directory on server
+          exclude:
+            - ".git*"    # Exclude Git-related files
+            - "node_modules/**"  # Exclude node_modules
+            - "*.yml"    # Exclude workflow files
