@@ -19,18 +19,18 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-        
+
       # Step 4: Deploy files via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.5.0
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT }}
-          protocol: ftp
-          local-dir: ./  # Local directory to deploy
-          server-dir: ${{ secrets.DEPLOY_DIR }}  # Target directory on server
+          server: "ftp.hillsidecollegesd.com"
+          username: "austin@car.hillsidecollegesd.com"
+          password: "@0}d4YT4dd,h"
+          port: "21"
+          protocol: "ftp"
+          local-dir: "./" # Local directory to deploy
+          server-dir: "/home/hillside/car.hillsidecollegesd.com"  # Target directory on server
           exclude:
             - ".git*"    # Exclude Git-related files
             - "node_modules/**"  # Exclude node_modules
