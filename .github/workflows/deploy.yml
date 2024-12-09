@@ -18,11 +18,7 @@ jobs:
       # Step 2: Install dependencies
       - name: Install Dependencies
         run: npm install
-
-      # Step 3: Build the application (optional, for build-based apps like Next.js)
-      - name: Build Application
-        run: npm run build
-
+        
       # Step 4: Deploy files via FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.5.0
